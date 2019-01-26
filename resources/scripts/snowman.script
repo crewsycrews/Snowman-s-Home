@@ -1,8 +1,12 @@
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	self.firing = false
 	self.dir = vmath.vector3(1, 0, 0)
 	self.speed = 50
+	self.current_anim = hash("idle")
+	self.anim = hash("idle")
+	self.state = "stand"
 end
 
 function final(self)
@@ -11,24 +15,50 @@ function final(self)
 end
 
 function update(self, dt)
-
+	-- print(self.state)
 	if self.firing then
+		self.anim = hash("Attack")
+		self.state = "Attacking"
+		local pos = go.get_position()
+		pos.x = pos.x + 17
+		go.set_position(pos)
+		
 		local angle = math.atan2(self.dir.y, self.dir.x)
 		local rot = vmath.quat_rotation_z(angle)
 		local props = { dir = self.dir }
 		factory.create("#ballsfactory", nil, rot, props)
 	end
+	if self.state == "attackFinish" then
+		
+
+		local pos = go.get_position()
+		pos.x = pos.x - 17
+		go.set_position(pos)
+		self.state = "stand"
+	end
 	self.firing = false
+	if self.anim ~= self.current_anim then
+		msg.post("#MAAAAN", "play_animation", { id = self.anim })
+		self.current_anim = self.anim
+    end
 end
 
 function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Remove this function if not needed
+	if self.anim == hash("Attack") then
+		if message_id == hash("animation_done") then
+			self.anim = hash("idle")
+			self.state = "attackFinish"
+		end
+	end
 end
 
 function on_input(self, action_id, action)
+
 	if action_id == hash("fire") and action.pressed then
-        self.firing = true
+		-- print(self.timingAnim)
+		if self.state == "stand" then
+			self.firing = true
+		end
     end
 end
 

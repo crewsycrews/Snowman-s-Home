@@ -3,8 +3,8 @@ go.property("dir", vmath.vector3())
 function init(self)
 	self.speed = 400
 	local pos = go.get_position()
-	pos.y = pos.y + 60
-	pos.x = pos.x + 20
+	pos.y = pos.y + 140
+	pos.x = pos.x + 80
 	go.set_position(pos)
 end
 
@@ -20,8 +20,11 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Remove this function if not needed
+	if message_id == hash("collision_response") then
+		-- msg.post("main#gui", "add_score", {amount = score})
+		-- particlefx.play("#pickup")
+		go.delete()
+	end
 end
 
 function on_input(self, action_id, action)
