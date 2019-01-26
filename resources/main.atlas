@@ -1,0 +1,15 @@
+images {
+  image: "/resources/pics/background.jpg"
+}
+images {
+  image: "/resources/pics/maaaan.png"
+}
+images {
+  image: "/resources/pics/ball.png"
+}
+images {
+  image: "/resources/pics/eneeeem.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

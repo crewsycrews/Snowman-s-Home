@@ -1,0 +1,38 @@
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	self.firing = false
+	self.dir = vmath.vector3(1, 0, 0)
+	self.speed = 50
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+
+	if self.firing then
+		local angle = math.atan2(self.dir.y, self.dir.x)
+		local rot = vmath.quat_rotation_z(angle)
+		local props = { dir = self.dir }
+		factory.create("#ballsfactory", nil, rot, props)
+	end
+	self.firing = false
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("fire") and action.pressed then
+        self.firing = true
+    end
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

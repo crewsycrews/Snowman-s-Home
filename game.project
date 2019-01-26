@@ -1,0 +1,14 @@
+[bootstrap]
+main_collection = /main/main.collectionc
+
+[script]
+shared_state = 1
+
+[display]
+width = 466
+height = 317
+fullscreen = 0
+
+[project]
+title = Snowman Home
+
