@@ -1,14 +1,95 @@
 images {
-  image: "/resources/pics/background.jpg"
+  image: "/resources/pics/background/1/back.png"
 }
-images {
-  image: "/resources/pics/maaaan.png"
+animations {
+  id: "idle"
+  images {
+    image: "/resources/pics/snowball 1/Sprite-0001.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/Sprite-0002.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/Sprite-0003.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/Sprite-0004.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/Sprite-0005.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/Sprite-0006.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 12
+  flip_horizontal: 0
+  flip_vertical: 0
 }
-images {
-  image: "/resources/pics/ball.png"
+animations {
+  id: "ball fly"
+  images {
+    image: "/resources/pics/snowball 1/fly/Snowbal ball fly1.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/fly/Snowbal ball fly2.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/fly/Snowbal ball fly3.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/fly/Snowbal ball fly4.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/fly/Snowbal ball fly5.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 10
+  flip_horizontal: 0
+  flip_vertical: 0
 }
-images {
-  image: "/resources/pics/eneeeem.png"
+animations {
+  id: "Attack"
+  images {
+    image: "/resources/pics/snowball 1/attack/1-attack1.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/attack/1-attack2.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/attack/1-attack3.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/attack/1-attack4.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/attack/1-attack5.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/attack/1-attack6.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/attack/1-attack7.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/attack/1-attack8.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/attack/1-attack9.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/attack/1-attack10.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/attack/1-attack11.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/attack/1-attack12.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 20
+  flip_horizontal: 0
+  flip_vertical: 0
 }
 margin: 0
 extrude_borders: 0

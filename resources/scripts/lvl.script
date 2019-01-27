@@ -17,8 +17,7 @@ function update(self, dt)
 	if self.timer <= 0 then
 		self.timer = 1/self.freq
 		local p = go.get_position()
-		local component = "#enemFactory"
-		factory.create(component, p)
+		factory.create("#enemFactory", p)
 	end
 end
 
