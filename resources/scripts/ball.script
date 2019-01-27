@@ -15,14 +15,21 @@ end
 
 function update(self, dt)
 	local pos = go.get_position()
-    pos = pos + self.dir * self.speed * dt
+	if self.status ~= "crumble" then
+		pos = pos + self.dir * self.speed * dt
+	else 
+		pos.y = pos.y - 2
+		pos.x = pos.x - 1
+	end
 	go.set_position(pos)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("collision_response") then
-		-- msg.post("main#gui", "add_score", {amount = score})
-		-- particlefx.play("#pickup")
+	if message_id == hash("trigger_response") then
+		msg.post("#sprite", "play_animation", { id = hash("ballSplash") })
+		self.status = "crumble"
+	end
+	if message_id == hash("animation_done")  then 
 		go.delete()
 	end
 end

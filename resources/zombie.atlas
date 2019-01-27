@@ -1,0 +1,245 @@
+animations {
+  id: "zombieSwordsmanWalk"
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk1.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk2.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk3.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk4.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk5.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk6.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk7.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk8.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk9.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk10.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk11.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk12.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk13.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk14.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk15.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk16.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk17.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk18.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk19.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/walk/undead_walk20.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 10
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "zombieSwordsmanAttack"
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack1.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack2.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack3.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack4.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack5.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack6.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack7.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack8.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack9.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack10.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack11.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack12.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack13.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack14.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack15.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack16.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack17.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack18.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/attack/undead_attack19.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 12
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "zombieSwordsmanDie"
+  images {
+    image: "/resources/pics/creature/creature/dead/undead_death1.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/dead/undead_death2.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/dead/undead_death3.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/dead/undead_death4.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/dead/undead_death5.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/dead/undead_death6.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/dead/undead_death7.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/dead/undead_death8.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/dead/undead_death9.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/dead/undead_death10.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/dead/undead_death11.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/dead/undead_death12.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/dead/undead_death13.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 12
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "zombieSwordsmanHurt"
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt1.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt2.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt3.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt4.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt5.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt6.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt7.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt8.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt9.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt10.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt11.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt12.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt13.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt14.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt15.png"
+  }
+  images {
+    image: "/resources/pics/creature/creature/hurt/undead_hurt16.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 17
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "zombieSwordsmanIdle"
+  images {
+    image: "/resources/pics/creature/creature/attack/\320\241\320\273\320\276\320\271 1.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 12
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 2
+extrude_borders: 0
+inner_padding: 0

@@ -1,0 +1,15 @@
+images {
+  image: "/resources/pics/text block/1.png"
+}
+images {
+  image: "/resources/pics/text block/2.png"
+}
+images {
+  image: "/resources/pics/text block/3.png"
+}
+images {
+  image: "/resources/pics/text block/4.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

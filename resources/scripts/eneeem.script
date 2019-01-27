@@ -1,13 +1,15 @@
 go.property("score", 1)
 go.property("speed", -240)
+go.property("attackSpeed", 0.6)
+go.property("HP", 120)
+go.property("DMG", 20)
 
 function init(self)
-	self.timer = 1/2
+	self.timer = 1/self.attackSpeed
 	local width = tonumber(sys.get_config("display.width"))
 	local pos = go.get_position()
 	local sx = go.get("#sprite", "size.x")
 	pos.x = width + sx
-	-- pos.y = pos.y + 25
 	go.set_position(pos)
 	self.staying = false
 	self.attacking = false
@@ -22,46 +24,78 @@ function final(self)
 end
 
 function update(self, dt)
-	if self.staying and not self.state == "attackFinish" then
-		self.anim = hash("zombieSwordsmanAttack")
-		self.state = "Attacking"
+	self.timer = self.timer - dt
+	if self.staying and self.state ~= "getHurt" and self.state ~= "Dying" then
+		if self.state ~= "Attacking" then
+			self.anim = hash("zombieSwordsmanIdle")
+		end
+		if self.timer <= 0 then
+			self.timer = 1/self.attackSpeed
+			self.state = "Attacking"
+			self.anim = hash("zombieSwordsmanAttack")
+			msg.post("/Snowman#snowman", "hit", {dmg = self.DMG})
+			local pos = go.get_position()
+			pos.y = pos.y + 25
+			go.set_position(pos)
+		end
+		
 	end
-
 	if self.anim ~= self.current_anim then
-		msg.post("#MAAAAN", "play_animation", { id = self.anim })
+		msg.post("#sprite", "play_animation", { id = self.anim })
 		self.current_anim = self.anim
 	end
-	
+
+	-- if self.state == "idle" then
+	-- 	local pos = go.get_position()
+	-- 	pos.y = pos.y - 17
+	-- 	go.set_position(pos)
+	-- end
+
 	local p = go.get_position()
 	local snowman = go.get_position("Snowman")
-	if self.staying == false then
+	if not self.staying then
 		p.x = p.x + self.speed * dt
 	end
 
-	self.timer = self.timer - dt
 
 	if p.x < snowman.x + 240 then
 		self.staying = true
-		if self.timer <= 0 then
-			self.timer = 1/2
-			self.state = "Attacking"
-		end
-	end
-
+	end	
 	go.set_position(p)
-
-	
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("collision_response") then
-		-- msg.post("main#gui", "add_score", {amount = score})
-		-- particlefx.play("#pickup")
-		go.delete()
+	if message_id == hash("trigger_response") then
+		self.anim = hash("zombieSwordsmanHurt")
+		self.state = "getHurt"
+		self.staying = true
+		self.HP = self.HP - 20
+		print(self.HP)
+		if self.HP <= 0 then
+			self.anim = hash("zombieSwordsmanDie")
+			self.state = "Dying"
+		end
 	end
 	if message_id == hash("animation_done") then
+		if self.state == "Dying" then
+			msg.post("/Night_Fight#fightNight", "deadBoy", { whom = go.get_id()})
+		end
+		if self.state == "getHurt" then
+			self.anim = hash("zombieSwordsmanWalk")
+			self.state = "walk"
+			self.staying = false
+		elseif self.state == "Attacking" then
+			local pos = go.get_position()
+			pos.y = pos.y - 25
+			go.set_position(pos)
 			self.anim = hash("zombieSwordsmanIdle")
-			self.state = "attackFinish"
+			self.state = "idle"
+		end
+	end
+	if message_id == hash("enemysCount") then
+		self.enemyCount = massage.count
+	end
+	if message_id == hash("dieAll") then
 		go.delete()
 	end
 end

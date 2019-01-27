@@ -1,0 +1,44 @@
+go.property("isActive", false) 
+
+function init(self)
+	self.state = "idle"
+	self.current_anim = hash("kid_idle")
+	self.anim = hash("kid_idle")
+end
+
+function update(self, dt)
+	if isActive then
+		local p = go.get_position()
+		if p.x > 1200  then
+			p.x = p.x - 1.5
+			go.set_position(p)
+			self.state = "walking"
+		else 
+			self.state = "idle"
+			self.anim = hash("kid_idle")
+			msg.post("/Morning#morning", "kid_arrived")
+		end
+		if self.state == "walking" then
+			self.anim = hash("kid_walk")
+		end
+		if self.anim ~= self.current_anim then
+			msg.post("#kid", "play_animation", { id = self.anim })
+			self.current_anim = self.anim
+		end
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end

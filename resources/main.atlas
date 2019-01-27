@@ -1,5 +1,32 @@
 images {
-  image: "/resources/pics/background/1/back.png"
+  image: "/resources/pics/background/morning/1 morning.png"
+}
+images {
+  image: "/resources/pics/background/morning/2 snow background morning for boy.png"
+}
+images {
+  image: "/resources/pics/background/morning/2-1snow background morning for boy pool for home.png"
+}
+images {
+  image: "/resources/pics/background/day/1 day  palatka.png"
+}
+images {
+  image: "/resources/pics/background/day/2 day.png"
+}
+images {
+  image: "/resources/pics/background/night/1 snow background boy night palatka.png"
+}
+images {
+  image: "/resources/pics/background/night/1 snow background boy night.png"
+}
+images {
+  image: "/resources/pics/background/night/2 snow background night.png"
+}
+images {
+  image: "/resources/pics/background/sundawn/1 c palatkoy.png"
+}
+images {
+  image: "/resources/pics/background/sundawn/2.png"
 }
 animations {
   id: "idle"
@@ -91,6 +118,66 @@ animations {
   flip_horizontal: 0
   flip_vertical: 0
 }
-margin: 0
+animations {
+  id: "ballSplash"
+  images {
+    image: "/resources/pics/snowball 1/splash/ball splash1.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/splash/ball splash2.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/splash/ball splash3.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/splash/ball splash4.png"
+  }
+  images {
+    image: "/resources/pics/snowball 1/splash/ball splash5.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 20
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "kid_idle"
+  images {
+    image: "/resources/pics/man/nice/idle/idle man1.png"
+  }
+  images {
+    image: "/resources/pics/man/nice/idle/idle man2.png"
+  }
+  images {
+    image: "/resources/pics/man/nice/idle/idle man3.png"
+  }
+  images {
+    image: "/resources/pics/man/nice/idle/idle man4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "kid_walk"
+  images {
+    image: "/resources/pics/man/nice/walk/walk man1.png"
+  }
+  images {
+    image: "/resources/pics/man/nice/walk/walk man2.png"
+  }
+  images {
+    image: "/resources/pics/man/nice/walk/walk man3.png"
+  }
+  images {
+    image: "/resources/pics/man/nice/walk/walk man4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 2
 extrude_borders: 0
 inner_padding: 0

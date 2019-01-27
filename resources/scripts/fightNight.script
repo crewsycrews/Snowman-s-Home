@@ -1,0 +1,71 @@
+go.property("freq", 0.5) 
+go.property("isNight", false)
+
+function init(self)
+		self.timer = 1/self.freq
+		-- make the game deterministic
+		self.mobsCount = 0
+		-- self.skeletonsCount = 0
+		math.randomseed(0)
+		self.spawnedMobs = {}
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	if self.isNight then
+		self.timer = self.timer - dt
+		if self.timer <= 0 and self.mobsCount < 6 and not self.GameOver then
+			self.timer = 1/self.freq
+			local p = go.get_position()
+			-- if self.isZombie then
+				self.zombie = factory.create("#zombieFactory", p)
+				table.insert(self.spawnedMobs, self.zombie)
+				self.mobsCount = self.mobsCount + 1
+				-- self.isZombie = false	
+			-- else
+			-- 	self.skeleton = factory.create("#skeletonFactory",p)
+			-- 	table.insert(self.spawnedMobs, self.skeleton)
+			-- 	self.mobsCount = self.mobsCount + 1
+			-- 	self.isZombie = true
+			-- end
+		end
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if self.isNight then
+		if message_id == hash("deadBoy") then
+			self.mobsCount = self.mobsCount - 1
+			for key,value in pairs(self.spawnedMobs) do 
+				if value == message.whom then
+					table.remove(self.spawnedMobs, key)
+				end
+			end
+			go.delete(message.whom)
+		end
+		if message_id == hash("GameOver") then
+			self.GameOver = true
+			local p = vmath.vector3()
+			local width = tonumber(sys.get_config("display.width"))
+			local height = tonumber(sys.get_config("display.height"))
+			p.x = width/2
+			p.y = height/2
+			go.delete_all(self.spawnedMobs)
+			factory.create("#gameOverFactory", p)
+		end
+	end
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end
